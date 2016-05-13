@@ -7,8 +7,7 @@
 
 
 
-package db;
-
+package com.coolweather.app.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteDatabase;
@@ -23,7 +22,7 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
 			"id integer primary key autoincrement," +
 			"city_name text,city_code text," +
 			"province_id integer)";
-	public static String CREATE_COUNTY="create table Country(" +
+	public static String CREATE_COUNTY="create table County(" +
 			"id integer primary key autoincrement," +
 			"county_name text," +
 			"county_code text," +
@@ -46,6 +45,9 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
 	}
 	public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion)
 	{
+		db.execSQL(CREATE_COUNTY);
+		
+		
 		
 	}
 	
